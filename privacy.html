@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Privacy Policy — Duplicate Image Remover</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; line-height: 1.6; color: #1a1a1b; }
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.2em; margin-top: 2em; }
+  code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy — Duplicate Image Remover</h1>
+<p><em>Last updated: September 2026</em></p>
+
+<p>Duplicate Image Remover ("the app") is a Reddit app built on Devvit that
+detects and removes duplicate image posts within a subreddit. This policy
+explains what data it processes and why.</p>
+
+<h2>What the app accesses</h2>
+<p>When a new image post is submitted in a subreddit where the app is
+installed, the app:</p>
+<ul>
+  <li>Downloads the image from Reddit's own image hosting (<code>i.redd.it</code>) or Imgur, in order to analyze it.</li>
+  <li>Computes a short numeric fingerprint of the image (a perceptual hash) that describes its visual structure. This fingerprint cannot be used to reconstruct the original image.</li>
+  <li>Reads basic post metadata already public on Reddit: post ID, permalink, author username, and submission time.</li>
+</ul>
+
+<h2>What the app stores</h2>
+<p>The app stores, per subreddit, for each image post:</p>
+<ul>
+  <li>The image's perceptual hash (a short string of characters, not the image itself)</li>
+  <li>The post's permalink, author username, and submission time</li>
+</ul>
+<p>This data is stored using Devvit's built-in Redis storage, scoped to the
+subreddit the post was made in. <strong>The app does not store copies of
+submitted images.</strong> It does not access private messages, account
+credentials, email addresses, or any data outside of what's needed to
+compare newly submitted images against previous ones in the same
+subreddit.</p>
+
+<h2>What the app does with this data</h2>
+<p>Stored fingerprints are compared against new submissions to detect
+near-duplicate images. If a match is found, the app removes the new
+post and leaves a comment (and, depending on configuration, a
+notification to subreddit moderators) linking to the original post.</p>
+
+<h2>Data retention</h2>
+<p>Stored fingerprints and metadata are retained per the moderator-configured
+lookback window (default: 90 days) and are not shared outside of the
+subreddit's own moderation team.</p>
+
+<h2>Third parties</h2>
+<p>The app does not sell, share, or transmit any collected data to third
+parties. Images are fetched only from Reddit's own hosting and Imgur,
+solely to compute the perceptual hash described above.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy can be directed to the moderators of the
+subreddit where the app is installed, or via the app's Reddit developer
+page.</p>
+
+</body>
+</html>
